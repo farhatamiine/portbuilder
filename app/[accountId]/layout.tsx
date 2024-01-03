@@ -9,9 +9,9 @@ interface AccountLayoutProps {
 
 export default async function AccountLayout({ children, params }: AccountLayoutProps) {
 
-    
+
     return (
-        <Dashboard navCollapsedSize={4} defaultLayout={[200, 655]}>
+        <Dashboard >
             {children}
         </Dashboard>
     )

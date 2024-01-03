@@ -26,125 +26,109 @@ import {
 
 import { UserNav } from "@/components/UserNav";
 import { Button } from "@/components/ui/button";
-
+import { ScrollArea } from "@/components/ui/scroll-area"
 interface DashboardProps {
-  defaultLayout: number[] | undefined;
-  defaultCollapsed?: boolean;
-  navCollapsedSize?: number;
+
   children: React.ReactNode,
 }
 
 export function Dashboard({
-  defaultLayout = [200, 655],
-  defaultCollapsed = false,
+
   children,
 }: DashboardProps) {
-  const [isCollapsed, setIsCollapsed] = useState(defaultCollapsed);
+
 
   return (
-    <ResizablePanelGroup
-      direction="horizontal"
-      className="h-full  items-stretch"
+    <section className="flex h-full"
     >
-      <ResizablePanel
-        defaultSize={defaultLayout[0]}
-        collapsible={false}
-        minSize={15}
-        maxSize={15}
-        className={cn(
-          isCollapsed && "min-w-[50px] transition-all duration-300 ease-in-out"
-        )}
+      <aside
+        className={"shadow-lg"}
       >
         <div
-          className={cn(
-            "flex h-[52px] items-center justify-center",
-            isCollapsed ? "h-[52px]" : "px-2"
-          )}
+          className={"p-5 w-full flex items-center justify-center"}
         >
           <img src="/logo.png" alt="" />
         </div>
 
         <Nav
-          isCollapsed={isCollapsed}
           links={[
             {
               title: "Dashboard",
               icon: LayoutDashboard,
               variant: "default",
-              href:"dashboard"
+              href: "dashboard"
             },
             {
               title: "My Portfolio",
               icon: ScrollText,
               variant: "ghost",
-              href:"portfolio"
+              href: "portfolio"
             },
             {
               title: "Theme Selection",
               icon: Wand2Icon,
               variant: "ghost",
-              href:"dashboard"
+              href: "dashboard"
             },
             {
               title: "Domain management",
               icon: Globe2Icon,
               variant: "ghost",
-              href:"dashboard"
+              href: "dashboard"
             },
             {
               title: "My Media Library",
               icon: FileIcon,
               variant: "ghost",
-              href:"dashboard"
+              href: "dashboard"
             },
             {
               title: "Export resume",
               icon: UploadIcon,
               variant: "ghost",
-              href:"dashboard"
+              href: "dashboard"
             },
             {
               title: "Settings",
               icon: CogIcon,
               variant: "ghost",
-              href:"dashboard"
+              href: "dashboard"
             },
             {
               title: "Help and Support",
               icon: HelpCircleIcon,
-              href:"dashboard",
+              href: "dashboard",
               variant: "ghost",
             },
             {
               title: "Upgrade",
               icon: CoinsIcon,
-              href:"dashboard",
+              href: "dashboard",
               variant: "ghost",
             },
             {
               title: "Logout",
               icon: LogOutIcon,
               variant: "ghost",
-              href:"dashboard"
+              href: "dashboard"
             },
           ]}
         />
-      </ResizablePanel>
-      <ResizableHandle withHandle />
-      <ResizablePanel defaultSize={defaultLayout[1]} minSize={30}>
-        <header className="flex items-center px-4 py-7 border-b ">
+      </aside>
+
+      <section className="flex flex-1 flex-col">
+        <header className="flex items-center px-4 py-4 border-b ">
           <div className="flex justify-between w-full px-4 items-center">
             <h1 className="text-xl font-bold">Dashboard</h1>
             <div className="flex gap-3 items-center">
-             
               <UserNav />
             </div>
           </div>
         </header>
-        <section className="p-4 bg-gray-100 h-full">
+        <ScrollArea className=" bg-gray-100 h-full p-5">
           {children}
-        </section>
-      </ResizablePanel>
-    </ResizablePanelGroup>
+        </ScrollArea>
+      </section>
+    </section>
   );
 }

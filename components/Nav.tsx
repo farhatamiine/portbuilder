@@ -5,30 +5,25 @@ import { LucideIcon } from "lucide-react";
 import { usePathname } from 'next/navigation';
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+
 
 interface NavProps {
-  isCollapsed: boolean;
   links: {
     title: string;
     icon: LucideIcon;
-    href:string | "#",
+    href: string | "#",
     variant: "default" | "ghost";
   }[];
 }
 
-export function Nav({ links, isCollapsed }: NavProps) {
+export function Nav({ links }: NavProps) {
 
   const router = usePathname();
   console.log();
-  
+
   return (
     <div
-      data-collapsed={isCollapsed}
+
       className="group flex flex-col gap-4 py-2 data-[collapsed=true]:py-2"
     >
       <nav className="grid gap-1 px-2 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2">
@@ -39,7 +34,7 @@ export function Nav({ links, isCollapsed }: NavProps) {
             className={cn(
               buttonVariants({ variant: link.href === router.split("/")[2] ? "default" : "ghost", size: "lg" }),
               link.variant === "default" &&
-                "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white",
+              "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white",
               "justify-start my-2"
             )}
           >
