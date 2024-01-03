@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { LucideIcon } from "lucide-react";
-
+import { usePathname } from 'next/navigation';
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import {
@@ -16,11 +16,16 @@ interface NavProps {
   links: {
     title: string;
     icon: LucideIcon;
+    href:string | "#",
     variant: "default" | "ghost";
   }[];
 }
 
 export function Nav({ links, isCollapsed }: NavProps) {
+
+  const router = usePathname();
+  console.log();
+  
   return (
     <div
       data-collapsed={isCollapsed}
@@ -30,12 +35,12 @@ export function Nav({ links, isCollapsed }: NavProps) {
         {links.map((link, index) => (
           <Link
             key={index}
-            href="#"
+            href={link.href}
             className={cn(
-              buttonVariants({ variant: link.variant, size: "lg" }),
+              buttonVariants({ variant: link.href === router.split("/")[2] ? "default" : "ghost", size: "lg" }),
               link.variant === "default" &&
                 "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white",
-              "justify-start my-3"
+              "justify-start my-2"
             )}
           >
             <link.icon className="mr-2 h-4 w-4" />
