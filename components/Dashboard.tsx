@@ -26,27 +26,16 @@ import {
 
 import { UserNav } from "@/components/UserNav";
 import { Button } from "@/components/ui/button";
-import { ScrollArea } from "@/components/ui/scroll-area"
+import { ScrollArea } from "@/components/ui/scroll-area";
 interface DashboardProps {
-
-  children: React.ReactNode,
+  children: React.ReactNode;
 }
 
-export function Dashboard({
-
-  children,
-}: DashboardProps) {
-
-
+export function Dashboard({ children }: DashboardProps) {
   return (
-    <section className="flex h-full"
-    >
-      <aside
-        className={"shadow-lg"}
-      >
-        <div
-          className={"p-5 w-full flex items-center justify-center"}
-        >
+    <section className="flex h-full">
+      <aside className={"shadow-lg"}>
+        <div className={"p-5 w-full flex items-center justify-center"}>
           <img src="/logo.png" alt="" />
         </div>
 
@@ -56,43 +45,43 @@ export function Dashboard({
               title: "Dashboard",
               icon: LayoutDashboard,
               variant: "default",
-              href: "dashboard"
+              href: "dashboard",
             },
             {
               title: "My Portfolio",
               icon: ScrollText,
               variant: "ghost",
-              href: "portfolio"
+              href: "portfolio",
             },
             {
               title: "Theme Selection",
               icon: Wand2Icon,
               variant: "ghost",
-              href: "dashboard"
+              href: "dashboard",
             },
             {
               title: "Domain management",
               icon: Globe2Icon,
               variant: "ghost",
-              href: "dashboard"
+              href: "dashboard",
             },
             {
               title: "My Media Library",
               icon: FileIcon,
               variant: "ghost",
-              href: "dashboard"
+              href: "dashboard",
             },
             {
               title: "Export resume",
               icon: UploadIcon,
               variant: "ghost",
-              href: "dashboard"
+              href: "dashboard",
             },
             {
               title: "Settings",
               icon: CogIcon,
               variant: "ghost",
-              href: "dashboard"
+              href: "dashboard",
             },
             {
               title: "Help and Support",
@@ -110,7 +99,7 @@ export function Dashboard({
               title: "Logout",
               icon: LogOutIcon,
               variant: "ghost",
-              href: "dashboard"
+              href: "dashboard",
             },
           ]}
         />
@@ -125,9 +114,7 @@ export function Dashboard({
             </div>
           </div>
         </header>
-        <ScrollArea className=" bg-gray-100 h-full p-5">
-          {children}
-        </ScrollArea>
+        <div className=" bg-gray-100 overflow-hidden p-5">{children}</div>
       </section>
     </section>
   );
