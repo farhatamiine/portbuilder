@@ -1,0 +1,11 @@
+## As a User
+- [ ] I'm able to update my profile picture
+- [ ] I'm able to add new experience,education and projects and edit the old ones
+- [ ] I'm able to edit my profile information
+  - [ ] Skills
+  - [ ] Languages
+  - [ ] City/Country
+  - [ ] About Me section
+  - [ ] My Current Job and a slogan
+- [ ] I'm able to upload my resume as a pdf file
+- [ ] I'm able to select a template from templates we have in the the app

@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en" className="h-screen  box-border">
+      <html lang="en" className="h-full  box-border">
         <body className={cn("h-full", inter.className)}>{children}</body>
       </html>
     </ClerkProvider>
