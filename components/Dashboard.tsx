@@ -105,7 +105,11 @@ export function Dashboard({ children }: DashboardProps) {
     <>
       <div>
         <Transition.Root show={sidebarOpen} as={Fragment}>
-          <Dialog as="div" className="relative z-50 lg:hidden" onClose={setSidebarOpen}>
+          <Dialog
+            as="div"
+            className="relative z-50 lg:hidden"
+            onClose={setSidebarOpen}
+          >
             <Transition.Child
               as={Fragment}
               enter="transition-opacity ease-linear duration-300"
@@ -139,9 +143,16 @@ export function Dashboard({ children }: DashboardProps) {
                     leaveTo="opacity-0"
                   >
                     <div className="absolute left-full top-0 flex w-16 justify-center pt-5">
-                      <button type="button" className="-m-2.5 p-2.5" onClick={() => setSidebarOpen(false)}>
+                      <button
+                        type="button"
+                        className="-m-2.5 p-2.5"
+                        onClick={() => setSidebarOpen(false)}
+                      >
                         <span className="sr-only">Close sidebar</span>
-                        <XIcon className="h-6 w-6 text-white" aria-hidden="true" />
+                        <XIcon
+                          className="h-6 w-6 text-white"
+                          aria-hidden="true"
+                        />
                       </button>
                     </div>
                   </Transition.Child>
@@ -164,15 +175,17 @@ export function Dashboard({ children }: DashboardProps) {
                                   href={item.href}
                                   className={cn(
                                     item.current
-                                      ? 'bg-gray-50 text-slate-600'
-                                      : 'text-gray-700 hover:text-slate-600 hover:bg-gray-50',
-                                    'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
+                                      ? "bg-gray-50 text-slate-600"
+                                      : "text-gray-700 hover:text-slate-600 hover:bg-gray-50",
+                                    "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                                   )}
                                 >
                                   <item.icon
                                     className={cn(
-                                      item.current ? 'text-slate-600' : 'text-gray-400 group-hover:text-slate-600',
-                                      'h-6 w-6 shrink-0'
+                                      item.current
+                                        ? "text-slate-600"
+                                        : "text-gray-400 group-hover:text-slate-600",
+                                      "h-6 w-6 shrink-0"
                                     )}
                                     aria-hidden="true"
                                   />
@@ -182,7 +195,6 @@ export function Dashboard({ children }: DashboardProps) {
                             ))}
                           </ul>
                         </li>
-
                       </ul>
                     </nav>
                   </div>
@@ -197,11 +209,7 @@ export function Dashboard({ children }: DashboardProps) {
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4">
             <div className="flex h-16 shrink-0 items-center">
-              <img
-                className="h-8 w-auto"
-                src="/logo.png"
-                alt="Your Company"
-              />
+              <img className="h-8 w-auto" src="/logo.png" alt="Your Company" />
             </div>
             <nav className="flex flex-1 flex-col">
               <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -213,15 +221,17 @@ export function Dashboard({ children }: DashboardProps) {
                           href={item.href}
                           className={cn(
                             item.current
-                              ? 'bg-gray-50 text-slate-600'
-                              : 'text-gray-700 hover:text-slate-600 hover:bg-gray-50',
-                            'group flex gap-x-3 rounded-md p-2 md:mb-3 text-sm leading-6 font-semibold'
+                              ? "bg-gray-50 text-slate-600"
+                              : "text-gray-700 hover:text-slate-600 hover:bg-gray-50",
+                            "group flex gap-x-3 rounded-md p-2 md:mb-3 text-sm leading-6 font-semibold"
                           )}
                         >
                           <item.icon
                             className={cn(
-                              item.current ? 'text-slate-600' : 'text-gray-400 group-hover:text-slate-600',
-                              'h-6 w-6 shrink-0'
+                              item.current
+                                ? "text-slate-600"
+                                : "text-gray-400 group-hover:text-slate-600",
+                              "h-6 w-6 shrink-0"
                             )}
                             aria-hidden="true"
                           />
@@ -231,8 +241,6 @@ export function Dashboard({ children }: DashboardProps) {
                     ))}
                   </ul>
                 </li>
-
-
               </ul>
             </nav>
           </div>
@@ -240,13 +248,20 @@ export function Dashboard({ children }: DashboardProps) {
 
         <div className="lg:pl-72">
           <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
-            <button type="button" className="-m-2.5 p-2.5 text-gray-700 lg:hidden" onClick={() => setSidebarOpen(true)}>
+            <button
+              type="button"
+              className="-m-2.5 p-2.5 text-gray-700 lg:hidden"
+              onClick={() => setSidebarOpen(true)}
+            >
               <span className="sr-only">Open sidebar</span>
               <MenuIcon className="h-6 w-6" aria-hidden="true" />
             </button>
 
             {/* Separator */}
-            <div className="h-6 w-px bg-gray-200 lg:hidden" aria-hidden="true" />
+            <div
+              className="h-6 w-px bg-gray-200 lg:hidden"
+              aria-hidden="true"
+            />
 
             <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
               <form className="relative flex flex-1" action="#" method="GET">
@@ -266,29 +281,31 @@ export function Dashboard({ children }: DashboardProps) {
                 />
               </form>
               <div className="flex items-center gap-x-4 lg:gap-x-6">
-                <button type="button" className="-m-2.5 p-2.5 text-gray-400 hover:text-gray-500">
+                <button
+                  type="button"
+                  className="-m-2.5 p-2.5 text-gray-400 hover:text-gray-500"
+                >
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
                 {/* Separator */}
-                <div className="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-200" aria-hidden="true" />
+                <div
+                  className="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-200"
+                  aria-hidden="true"
+                />
                 <SignedIn>
                   {/* Mount the UserButton component */}
-                  <UserButton />
+                  <UserButton afterSignOutUrl="/" />
                 </SignedIn>
               </div>
-
             </div>
           </div>
 
           <main className="py-5">
-            <div className="px-4 sm:px-6 lg:px-8">
-              {children}
-            </div>
+            <div className="px-4 sm:px-6 lg:px-8">{children}</div>
           </main>
         </div>
       </div>
-
     </>
   );
 }
