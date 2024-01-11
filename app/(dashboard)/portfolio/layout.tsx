@@ -1,5 +1,5 @@
 import {Dashboard} from "@/components/Dashboard"
-import {auth, currentUser} from "@clerk/nextjs";
+
 
 interface AccountLayoutProps {
     children: React.ReactNode,
@@ -10,7 +10,7 @@ interface AccountLayoutProps {
 
 export default async function PortfolioLayout({children, params}: AccountLayoutProps) {
 
-    const {userId} = auth();
+
 
     return (
         <>
