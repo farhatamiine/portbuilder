@@ -3,9 +3,10 @@
 // Import necessary libraries
 import React from "react";
 import { trpc } from "@/app/_trpc/client";
-import { Ghost, Loader2 } from "lucide-react";
+import { Ghost, GhostIcon, Loader2 } from "lucide-react";
 import { UploadButton } from "@/components/UploadButton";
 import Skeleton from "react-loading-skeleton";
+import { NoItemFound } from "@/components/NoItemFound";
 
 function Page() {
   const { data: files, isLoading } = trpc.getUserFiles.useQuery();
@@ -35,12 +36,10 @@ function Page() {
         ) : isLoading ? (
           <Skeleton height={100} className="my-2" count={3} />
         ) : (
-          <div className="mx-auto w-full flex items-center justify-center flex-col mt-32 p-5">
-            <Ghost className="w-12 h-12 text-slate-700 mb-5" />
-            <h2 className="font-medium lowercase text-xl text-slate-700">
-              Pretty Empty arround here
-            </h2>
-          </div>
+          <NoItemFound
+            description="Pretty Empty arround here"
+            image={<GhostIcon className="w-16 h-16 text-slate-700 mb-5" />}
+          />
         )}
       </div>
     </main>
