@@ -6,35 +6,55 @@ import { PlusIcon } from "lucide-react";
 import Link from "next/link";
 import { EventEmitter } from "stream";
 import { Button } from "@/components/ui/button";
+import { Label } from "./ui/label";
+import { Input } from "./ui/input";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "./ui/dialog";
 
 interface AddNewCardProps {
   title: string;
   description: string;
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  children: React.ReactNode;
 }
 
 export default function AddNewCard({
   description,
   title,
-  onClick: onProjectClick,
+  children,
 }: AddNewCardProps) {
   return (
-    <Card className="w-full h-fit mb-2">
-      <CardContent className="p-4 flex items-center space-x-8">
-        <Button
-          onClick={onProjectClick}
-          variant={"ghost"}
-          className="rounded-full w-14 h-14"
-        >
-          <PlusIcon className={"rounded-full  h-full w-full"} />
-        </Button>
-        <div className="">
-          <h2 className="text-lg font-semibold">{title}</h2>
-          <p className="mt-1 text-sm text-gray-600">
-            {truncateString(description, 100)}
-          </p>
-        </div>
-      </CardContent>
-    </Card>
+    <>
+      <Card className="w-full h-fit mb-2">
+        <CardContent className="p-4 flex items-center space-x-8">
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="outline">
+                <PlusIcon className={"rounded-full  h-full w-full"} />
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px]">
+              <DialogHeader>
+                <DialogTitle>{title}</DialogTitle>
+                <DialogDescription>{description}</DialogDescription>
+              </DialogHeader>
+              {children}
+            </DialogContent>
+          </Dialog>
+          <div className="">
+            <h2 className="text-lg font-semibold">{title}</h2>
+            <p className="mt-1 text-sm text-gray-600">
+              {truncateString(description, 100)}
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+    </>
   );
 }

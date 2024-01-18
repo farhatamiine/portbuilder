@@ -58,6 +58,9 @@ export const appRouter = router({
       },
     });
   }),
+  saveNewProject: protectedProcedure.mutation(async ({ ctx }) => {
+    const { userId } = ctx;
+  }),
 });
 
 export type AppRouter = typeof appRouter;

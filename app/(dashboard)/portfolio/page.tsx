@@ -78,8 +78,9 @@ const Page = () => {
                   description={
                     "Your projects should highlight your best skills and experience."
                   }
-                  onClick={() => console.log("Project Clicked")}
-                />
+                >
+                  <p>Hello World</p>
+                </AddNewCard>
                 <ScrollArea className="h-[750px] w-full px-2 md:px-0 rounded-md ">
                   {projects && projects.length > 0 ? (
                     projects.map(
@@ -122,8 +123,9 @@ const Page = () => {
                   description={
                     "Showcase your professional journey and highlight career milestones."
                   }
-                  onClick={() => console.log("Experience Clicked")}
-                />
+                >
+                  <p>Experiences</p>
+                </AddNewCard>
                 <ScrollArea className="h-[750px] w-full px-2 md:px-0 rounded-md ">
                   {projects && projects.length > 0 ? (
                     projects.map(
@@ -166,8 +168,9 @@ const Page = () => {
                   description={
                     "Detail your academic background to underscore your technical foundation."
                   }
-                  onClick={() => console.log("Education Clicked")}
-                />
+                >
+                  <p>Education</p>
+                </AddNewCard>
                 <ScrollArea className="h-[750px] w-full px-2 md:px-0 rounded-md ">
                   {projects && projects.length > 0 ? (
                     projects.map(

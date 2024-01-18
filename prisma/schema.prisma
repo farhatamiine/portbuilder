@@ -19,6 +19,8 @@ model User {
   Project                Project[]
 }
 
+
+
 model File {
   id           String       @id @default(cuid())
   name         String
@@ -38,6 +40,8 @@ model Project {
   userId      String?
   Tools       Tools[]
   User        User?   @relation(fields: [userId], references: [id])
+    @@index([userId])
+
 }
 
 model Tools {
@@ -45,6 +49,8 @@ model Tools {
   name      String
   projectId String?
   Project   Project? @relation(fields: [projectId], references: [id])
+    @@index([projectId])
+
 }
 
 enum UploadStatus {
