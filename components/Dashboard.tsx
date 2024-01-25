@@ -46,6 +46,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { trpc } from "@/app/_trpc/client";
+import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs";
 
 interface DashboardProps {
   children: React.ReactNode;
@@ -350,7 +351,7 @@ export function Dashboard({ children }: DashboardProps) {
                     </DropdownMenuGroup>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem>
-                      Log out
+                      <LogoutLink>Log out</LogoutLink>
                       <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
                     </DropdownMenuItem>
                   </DropdownMenuContent>
