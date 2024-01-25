@@ -10,6 +10,8 @@ import Image from "next/image";
 import AddNewCard from "@/components/AddNew";
 import { trpc } from "@/app/_trpc/client";
 import Skeleton from "react-loading-skeleton";
+import * as z from "zod";
+
 import { NoItemFound } from "@/components/NoItemFound";
 import { convertObjectsToStringArray } from "@/lib/utils";
 import { log } from "console";
@@ -20,6 +22,10 @@ const Page = () => {
     trpc.getUserInformation.useQuery();
   const formatNameId = (obj: { name: string; id: number | string }) =>
     `${obj.name}`;
+
+  const formSchema = z.object({
+    username: z.string().min(2).max(50),
+  });
 
   return (
     <section>
