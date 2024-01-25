@@ -15,9 +15,11 @@ import * as z from "zod";
 import { NoItemFound } from "@/components/NoItemFound";
 import { convertObjectsToStringArray } from "@/lib/utils";
 import { log } from "console";
+import { projects } from "@/lib/data";
 
 const Page = () => {
-  const { data: projects, isLoading } = trpc.getUserProjects.useQuery();
+  // const { data: projects, isLoading } = trpc.getUserProjects.useQuery();
+  // const { data: projects, isLoading } = trpc.getUserProjects.useQuery();
   const { data: user, isLoading: LoadingUserInfo } =
     trpc.getUserInformation.useQuery();
   const formatNameId = (obj: { name: string; id: number | string }) =>
@@ -90,22 +92,25 @@ const Page = () => {
                 <ScrollArea className="h-[750px] w-full px-2 md:px-0 rounded-md ">
                   {projects && projects.length > 0 ? (
                     projects.map(
-                      ({ name: projectName, description, id, Tools }) => {
+                      ({ title: projectName, description }, index) => {
                         return (
                           <DetailCard
-                            key={id}
+                            key={index}
                             title={projectName}
                             image={""}
                             description={description}
                             badges={convertObjectsToStringArray(
-                              Tools,
+                              [
+                                { id: 10, name: "Spring" },
+                                { id: 10, name: "React" },
+                              ],
                               formatNameId
                             )}
                           />
                         );
                       }
                     )
-                  ) : isLoading ? (
+                  ) : false ? (
                     <Skeleton height={100} className="my-2" count={3} />
                   ) : (
                     <NoItemFound
@@ -135,30 +140,33 @@ const Page = () => {
                 <ScrollArea className="h-[750px] w-full px-2 md:px-0 rounded-md ">
                   {projects && projects.length > 0 ? (
                     projects.map(
-                      ({ name: projectName, description, id, Tools }) => {
+                      ({ title: projectName, description }, index) => {
                         return (
                           <DetailCard
-                            key={id}
+                            key={index}
                             title={projectName}
                             image={""}
                             description={description}
                             badges={convertObjectsToStringArray(
-                              Tools,
+                              [
+                                { id: 10, name: "Spring" },
+                                { id: 10, name: "React" },
+                              ],
                               formatNameId
                             )}
                           />
                         );
                       }
                     )
-                  ) : isLoading ? (
+                  ) : false ? (
                     <Skeleton height={100} className="my-2" count={3} />
                   ) : (
                     <NoItemFound
-                      description="No Experience found"
+                      description="No projects found"
                       image={
                         <Image
-                          src={"/noExperience.svg"}
-                          alt="No Experience"
+                          src={"/noProjects.png"}
+                          alt="No Projects"
                           width={250}
                           className="object-cover"
                           height={250}
@@ -180,30 +188,33 @@ const Page = () => {
                 <ScrollArea className="h-[750px] w-full px-2 md:px-0 rounded-md ">
                   {projects && projects.length > 0 ? (
                     projects.map(
-                      ({ name: projectName, description, id, Tools }) => {
+                      ({ title: projectName, description }, index) => {
                         return (
                           <DetailCard
-                            key={id}
+                            key={index}
                             title={projectName}
                             image={""}
                             description={description}
                             badges={convertObjectsToStringArray(
-                              Tools,
+                              [
+                                { id: 10, name: "Spring" },
+                                { id: 10, name: "React" },
+                              ],
                               formatNameId
                             )}
                           />
                         );
                       }
                     )
-                  ) : isLoading ? (
+                  ) : false ? (
                     <Skeleton height={100} className="my-2" count={3} />
                   ) : (
                     <NoItemFound
-                      description="No Education found"
+                      description="No projects found"
                       image={
                         <Image
-                          src={"/NoEducation.svg"}
-                          alt="No education"
+                          src={"/noProjects.png"}
+                          alt="No Projects"
                           width={250}
                           className="object-cover"
                           height={250}
